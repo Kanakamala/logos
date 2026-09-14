@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+    <script>
+        (function() {
+            // 1. Get the short code from the URL parameter (e.g., ?p=promo)
+            const urlParams = new URLSearchParams(window.location.search);
+            const shortCode = urlParams.get('p');
+
+            // 2. YOUR EXACT GOOGLE APPS SCRIPT URL HERE
+            const baseScriptUrl = "https://script.google.com/macros/s/AKfycbwHoX7JTr5g9EWmh-FIN4d47Fiqzn2uuloK5AOICIuOL2y_Q9TfAInNaPNpELLKJ93-/exec";
+
+            if (shortCode) {
+                // Forward the request to your Apps Script app via pathInfo routing
+                window.location.href = baseScriptUrl + "/" + encodeURIComponent(shortCode);
+            } else {
+                document.body.innerHTML = "<h3>⚠️ Error: No short code specified.</h3>";
+            }
+        })();
+    </script>
+</head>
+<body>
+    <p>Loading destination...</p>
+</body>
+</html>
